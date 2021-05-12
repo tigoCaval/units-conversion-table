@@ -1,0 +1,34 @@
+{
+    "name": "tigo/units-conversion",
+    "description": "units conversion table",
+    "license": "MIT",
+    "keywords": [ 
+        "units",
+        "units of length",
+        "units conversion",
+        "conversion of units",
+        "length converter"
+    ],
+    "authors": [
+       {
+           "name": "Tiago A C Pereira",
+           "email": "tigocavalcante57@gmail.com"
+       } 
+    ],
+    "require": {
+        "php":">= 7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tigo\\UnitsConversion\\": "src/" 
+        }
+    },
+    "autoload-dev":{
+        "psr-4": {
+            "Tigo\\UnitsConversion\\Tests\\": "tests" 
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
