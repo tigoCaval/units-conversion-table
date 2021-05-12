@@ -17,7 +17,7 @@ Directory: ..\src\Length\StandardUnit.php
 ```
 * Hectometer = 1 
 * Decameter = 2
-* Meter = 3
+* Meters = 3
 * Decimeter = 4
 * Centimeter = 5
 * Millimeter = 6
