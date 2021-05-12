@@ -30,3 +30,12 @@ Somewhere in your project, you may need to use autoload
  include __DIR__ ."/vendor/autoload.php";
  ```
  Example: CONVERSION TABLE OF UNITS OF LENGTH
+ ```php
+    use Tigo\UnitsConversion\ClientLength; //import class 
+    $client = new ClientLength();
+    /**
+      Example: Converting kilometer to meter
+      $client->convert(kilometer, meter, value)
+    **/
+    print_r($client->convert(10, 3, 23)) // result: 23000 (meter)
+ ```
