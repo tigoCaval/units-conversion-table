@@ -23,7 +23,7 @@ Directory: ..\src\Length\StandardUnit.php
 * Yard = 7
 * Feet = 8
 * Inche = 9
-* kilometer = 10
+* Kilometer = 10
 ## Introduction
 Somewhere in your project, you may need to use autoload
  ```php
