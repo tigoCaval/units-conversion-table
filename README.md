@@ -3,6 +3,7 @@ CONVERSION TABLE OF UNITS OF LENGTH
 
 - This package can be used with any PHP application or Frameworks/PHP.
 - Download package: ```composer require tigo/units-conversion```
+- Recommended version: ```PHP >= 7.2```
 - MIT license. ***Feel free to use this project***. ***Leave a star :star: or make a fork !***
 
 *If you found this project useful, consider making a donation to support the developer.* 
