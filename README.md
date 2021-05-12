@@ -1,5 +1,5 @@
 # UNITS CONVERSION TABLE
-Use this project to convert units
+CONVERSION TABLE OF UNITS OF LENGTH
 
 - This package can be used with any PHP application or Frameworks/PHP.
 - Download package: ```composer require tigo/units-conversion```
