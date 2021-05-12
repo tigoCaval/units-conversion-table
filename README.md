@@ -21,9 +21,9 @@ Directory: ..\src\Length\StandardUnit.php
 * Decimeter = 4
 * Centimeter = 5
 * Millimeter = 6
-* Yard = 7
+* Yards = 7
 * Feet = 8
-* Inche = 9
+* Inch = 9
 * Kilometer = 10
 ## Introduction
 Somewhere in your project, you may need to use autoload
