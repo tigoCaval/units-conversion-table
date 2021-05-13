@@ -38,13 +38,13 @@ Somewhere in your project, you may need to use autoload
       Example: Converting kilometer to meter
       $client->convert(kilometer, meter, value)
     **/
-    print_r($client->convert(10, 3, 23)) // result: 23000 (meter)
+    print_r($client->convert(10, 3, 23)); // result: 23000 (meter)
     
     /**
       Example: Converting Yard to Inche
       $client->convert(yard, inche, value)
     **/
-    print_r($client->convert(7, 9, 23)) // result: 828 (inche)
+    print_r($client->convert(7, 9, 23)); // result: 828 (inche)
  ```
 ### Supporting this project
 If you are interested in supporting this project, you can help in many ways. Leave a star :star: or make a donation of any value.
