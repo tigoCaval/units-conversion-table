@@ -41,7 +41,7 @@ Somewhere in your project, you may need to use autoload
     print_r($client->convert(10, 3, 23)); // result: 23000 (meter)
     
     /**
-      Example: Converting Yard to Inche
+      Example: Converting Yard to Inch
       $client->convert(yard, inch, value)
     **/
     print_r($client->convert(7, 9, 23)); // result: 828 (inche)
