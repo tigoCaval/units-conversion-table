@@ -44,7 +44,7 @@ Somewhere in your project, you may need to use autoload
       Example: Converting Yard to Inch
       $client->convert(yard, inch, value)
     **/
-    print_r($client->convert(7, 9, 23)); // result: 828 (inche)
+    print_r($client->convert(7, 9, 23)); // result: 828 (inch)
  ```
 ### Supporting this project
 If you are interested in supporting this project, you can help in many ways. Leave a star :star: or make a donation of any value.
