@@ -42,7 +42,7 @@ Somewhere in your project, you may need to use autoload
     
     /**
       Example: Converting Yard to Inche
-      $client->convert(yard, inche, value)
+      $client->convert(yard, inch, value)
     **/
     print_r($client->convert(7, 9, 23)); // result: 828 (inche)
  ```
