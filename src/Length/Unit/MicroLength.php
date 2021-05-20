@@ -82,7 +82,7 @@ class MicroLength
      * convert
      *
      * @param  mixed $unit
-     * @param  mixed $nm
+     * @param  mixed $micro
      * @return void
      */
     public function convert($unit, $micro)
