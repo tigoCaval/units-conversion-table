@@ -25,6 +25,8 @@ Directory: ..\src\Length\StandardUnit.php
 * Feet = 8
 * Inch = 9
 * Kilometer = 10
+* Nanometers = 11
+* Micrometers = 12
 ## Introduction
 Somewhere in your project, you may need to use autoload
  ```php
