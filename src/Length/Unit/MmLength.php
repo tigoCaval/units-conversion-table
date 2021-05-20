@@ -11,16 +11,6 @@ use Tigo\UnitsConversion\Length\StandardUnit;
  */
 class MmLength
 {
-    const MM = 1; //Millimeter
-    const HM = 100000; //Hectometers
-    const KM = 1000000; //kilometers
-    const DAM = 10000; //Dekameters
-    const M = 1000; //Meters
-    const DM = 100; //Decimeter
-    const CM = 10; //Centimeter
-    const YD = 914.4; //Yards 
-    const FT = 304.8; //Feet
-    const IN = 25.4; //Inches 
      
     /**
      * Instance
@@ -38,6 +28,53 @@ class MmLength
     {
         $this->unit = new StandardUnit();
     }
+
+     /**
+     * matrix
+     *
+     * @return array
+     */
+    protected function matrix()
+    {
+        return [
+            $this->unit::HM =>[
+                'A' => 1, 'B' => 100000          
+            ],
+            $this->unit::DAM =>[
+                'A' => 1, 'B' => 10000           
+            ],
+            $this->unit::M =>[
+                'A' => 1, 'B' => 1000           
+            ],
+            $this->unit::DM => [
+                'A' => 1, 'B' => 100           
+            ],
+            $this->unit::CM =>[
+                'A' => 1, 'B' => 10           
+            ],
+            $this->unit::MM => [
+                'A' => 1, 'B' => 1           
+            ],
+            $this->unit::YD => [
+                'A' => 1, 'B' => 914.4           
+            ],
+            $this->unit::FT =>[
+                'A' => 1, 'B' => 304.8           
+            ],
+            $this->unit::IN =>[
+                'A' => 1, 'B' => 25.4         
+            ],
+            $this->unit::KM=>[
+                'A' => 1, 'B' => 1000000           
+            ],
+            $this->unit::NM=>[
+                'A' => 1000000, 'B' => 1           
+            ],
+            $this->unit::MICRO=>[
+                'A' => 1000, 'B' => 1     
+            ]
+        ]; 
+    }
     
     /**
      * convert
@@ -48,43 +85,12 @@ class MmLength
      */
     public function convert($unit, $mm)
     {
-        $result = 0;
-        switch($unit){
-            case $this->unit::MM:
-                $result = ($mm * self::MM);
-                break;
-            case $this->unit::HM:
-                $result = ($mm / self::HM);
-                break;
-            case $this->unit::KM:
-                $result = ($mm / self::KM);
-                break;
-            case $this->unit::DAM: 
-                $result = ($mm / self::DAM);
-                break;
-            case $this->unit::M:
-                $result = ($mm / self::M);
-                break; 
-            case $this->unit::DM:
-                $result = ($mm / self::DM);
-                break;
-            case $this->unit::CM:
-                $result = ($mm / self::CM);
-                break;  
-            case $this->unit::YD:
-                $result = ($mm / self::YD);
-                break;
-            case $this->unit::FT:
-                $result = ($mm / self::FT);
-                break;
-            case $this->unit::IN:
-                $result = ($mm / self::IN);
-                break;            
-            default:
-                $result = '#Erro 501';
-                break;
-        }
-        return $result;
+        foreach($this->matrix() as $key => $value){
+            if($unit == $key)
+            {       
+               return ($value['A'] * $mm) / $value['B'];
+            }
+        } 
     }
 
 }

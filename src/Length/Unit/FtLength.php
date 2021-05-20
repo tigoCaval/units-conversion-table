@@ -11,16 +11,6 @@ use Tigo\UnitsConversion\Length\StandardUnit;
  */
 class FtLength
 {
-    const FT = 1; //Feet    
-    const HM = 0.003048; //Hectometers
-    const KM = 0.0003048; //kilometers
-    const DAM = 0.03048; //Dekameters
-    const M = 0.3048; //Meters
-    const DM = 3.048; //Decimeter
-    const CM = 30.48; //Centimeter
-    const MM = 304.8; //Millimeter 
-    const YD = 3; //Yards
-    const IN = 12; //Inches 
     
     /**
      * Instance
@@ -40,6 +30,53 @@ class FtLength
     }
     
     /**
+     * matrix
+     *
+     * @return array
+     */
+    protected function matrix()
+    {
+        return [
+            $this->unit::HM =>[
+                'A' => 0.003048, 'B' => 1           
+            ],
+            $this->unit::DAM =>[
+                'A' => 0.03048, 'B' => 1           
+            ],
+            $this->unit::M =>[
+                'A' => 0.3048, 'B' => 1           
+            ],
+            $this->unit::DM => [
+                'A' => 3.048, 'B' => 1           
+            ],
+            $this->unit::CM =>[
+                'A' => 30.48, 'B' => 1           
+            ],
+            $this->unit::MM => [
+                'A' => 304.8, 'B' => 1           
+            ],
+            $this->unit::YD => [
+                'A' => 1, 'B' => 3           
+            ],
+            $this->unit::FT =>[
+                'A' => 1, 'B' => 1           
+            ],
+            $this->unit::IN =>[
+                'A' => 12, 'B' => 1         
+            ],
+            $this->unit::KM=>[
+                'A' => 0.0003048, 'B' => 1           
+            ],
+            $this->unit::NM=>[
+                'A' => 304800000, 'B' => 1           
+            ],
+            $this->unit::MICRO=>[
+                'A' => 304800, 'B' => 1     
+            ]
+        ]; 
+    }
+    
+    /**
      * convert
      *
      * @param  mixed $unit
@@ -48,43 +85,12 @@ class FtLength
      */
     public function convert($unit, $ft)
     {
-        $result = 0;
-        switch($unit){
-            case $this->unit::FT:
-                $result = ($ft * self::FT);
-                break;
-            case $this->unit::HM:
-                $result = ($ft * self::HM);
-                break;
-            case $this->unit::KM:
-                $result = ($ft * self::KM);
-                break;
-            case $this->unit::DAM: 
-                $result = ($ft * self::DAM);
-                break;
-            case $this->unit::M:
-                $result = ($ft * self::M);
-                break; 
-            case $this->unit::DM:
-                $result = ($ft * self::DM);
-                break;
-            case $this->unit::CM:
-                $result = ($ft * self::CM);
-                break;  
-            case $this->unit::MM:
-                $result = ($ft * self::MM);
-                break;
-            case $this->unit::YD: 
-                $result = ($ft / self::YD);
-                break;
-            case $this->unit::IN:
-                $result = ($ft * self::IN);
-                break;                   
-            default:
-                $result = '#Erro 501';
-                break;
+        foreach($this->matrix() as $key => $value){
+            if($unit == $key)
+            {       
+               return ($value['A'] * $ft) / $value['B'];
+            }
         }
-        return $result;
     }
     
 }

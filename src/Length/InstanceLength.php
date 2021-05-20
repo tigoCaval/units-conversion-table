@@ -8,9 +8,11 @@ use Tigo\UnitsConversion\Length\Unit\HmLength;
 use Tigo\UnitsConversion\Length\Unit\InLength;
 use Tigo\UnitsConversion\Length\Unit\KmLength;
 use Tigo\UnitsConversion\Length\Unit\MmLength;
+use Tigo\UnitsConversion\Length\Unit\NmLength;
 use Tigo\UnitsConversion\Length\Unit\YdLength;
 use Tigo\UnitsConversion\Length\Unit\DamLength;
 use Tigo\UnitsConversion\Length\Unit\MeterLength;
+use Tigo\UnitsConversion\Length\Unit\MicroLength;
 
 /**
  * InstanceLength
@@ -20,7 +22,7 @@ class InstanceLength
  
     protected static $instance;
 
-    private function __construct()
+    private function __construct() 
     {
         
     }
@@ -28,74 +30,62 @@ class InstanceLength
     
     public static function getKm()
     {
-      if(!isset(self::$instance))  
-         self::$instance = new KmLength();
-      return self::$instance;  
+        return self::$instance = new KmLength();  
     }
 
     public static function getHm()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new HmLength();
-        return self::$instance;  
+        return self::$instance = new HmLength();  
     }
 
     public static function getDam()
     {
-        if(!isset(self::$instance))  
-           self::$instance = new DamLength();
-        return self::$instance;   
+        return self::$instance = new DamLength();  
     }
 
     public static function getMeter()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new MeterLength();
-        return self::$instance; 
+        return self::$instance = new MeterLength();
     }
 
     public static function getDm()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new DmLength();
-        return self::$instance; 
+        return self::$instance = new DmLength(); 
     }
     
     public static function getCm()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new CmLength();
-        return self::$instance; 
+        return self::$instance = new CmLength();
     }
 
     public static function getMm()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new MmLength();
-        return self::$instance; 
+        return self::$instance = new MmLength(); 
     } 
 
     public static function getYd()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new YdLength();
-        return self::$instance; 
+        return self::$instance = new YdLength(); 
     } 
 
     public static function getFt()
-    {
-        if(!isset(self::$instance))  
-          self::$instance = new FtLength();
-        return self::$instance; 
+    { 
+        return self::$instance = new FtLength(); 
     } 
 
     public static function getIn()
     {
-        if(!isset(self::$instance))  
-          self::$instance = new InLength();
-        return self::$instance; 
+        return self::$instance = new InLength(); 
     } 
 
-    
+    public static function getNm()
+    {
+        return self::$instance = new NmLength(); 
+    } 
 
+    public static function getMicro()
+    {
+        return self::$instance = new MicroLength(); 
+    } 
+    
 }

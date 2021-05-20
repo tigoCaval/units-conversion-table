@@ -24,7 +24,7 @@ class GenericLength implements LengthInterface
       /**
        * __construct
        *
-       * @return void
+       * @$result void
        */
       public function __construct()
       {
@@ -72,12 +72,18 @@ class GenericLength implements LengthInterface
                     break;
                case $this->unit::IN:
                     $result = InstanceLength::getIn()->convert($unit2, $value);    
-                    break;                     
+                    break;  
+               case $this->unit::NM:
+                    $result = InstanceLength::getNm()->convert($unit2, $value);    
+                    break;  
+               case $this->unit::MICRO:
+                    $result = InstanceLength::getMicro()->convert($unit2, $value);    
+                    break;                             
                default:
                     $result = '#Erro 501';
                     break;
              }
              return $result;    
       }
-
+     
 }

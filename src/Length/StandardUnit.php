@@ -17,5 +17,6 @@ class StandardUnit
     const FT = 8; //Feet
     const IN = 9; //Inches
     const KM = 10; //kilometer
-   
+    const NM = 11; //Nanometers  
+    const MICRO = 12; //Micrometers   
 }

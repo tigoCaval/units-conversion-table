@@ -11,18 +11,7 @@ use Tigo\UnitsConversion\Length\StandardUnit;
  */
 class KmLength
 {
-    const HM = 10;  //Hectometers
-    const KM = 1; //kilometers
-    const DAM = 100; //Dekameters 
-    const M = 1000; //Meters
-    const DM = 10000; //Decimeters
-    const CM = 100000; //Centimeters
-    const MM = 1000000; //Millimeters
-    const YD = 0.0009144; //Yards 
-    const FT = 0.0003048; //Feet
-    const IN = 0.0000254; //Inches 
-    
-    /**
+     /**
      * Instance
      * 
      * @var StandardUnit
@@ -38,53 +27,69 @@ class KmLength
     {
         $this->unit = new StandardUnit();
     }
+    
+    /**
+     * matrix
+     *
+     * @return array
+     */
+    protected function matrix()
+    {
+        return [
+            $this->unit::HM =>[
+                'A' => 10, 'B' => 1           
+            ],
+            $this->unit::DAM =>[
+                'A' => 100, 'B' => 1           
+            ],
+            $this->unit::M =>[
+                'A' => 1000, 'B' => 1           
+            ],
+            $this->unit::DM => [
+                'A' => 10000, 'B' => 1           
+            ],
+            $this->unit::CM =>[
+                'A' => 100000, 'B' => 1           
+            ],
+            $this->unit::MM => [
+                'A' => 1000000, 'B' => 1           
+            ],
+            $this->unit::YD => [
+                'A' => 1, 'B' => 0.0009144           
+            ],
+            $this->unit::FT =>[
+                'A' => 1, 'B' => 0.0003048           
+            ],
+            $this->unit::IN =>[
+                'A' => 1, 'B' => 0.0000254           
+            ],
+            $this->unit::KM=>[
+                'A' => 1, 'B' => 1           
+            ],
+            $this->unit::NM=>[
+                'A' => 1000000000000, 'B' => 1           
+            ],
+            $this->unit::MICRO=>[
+                'A' => 1000000000, 'B' => 1     
+            ]
+        ]; 
+    }
           
     /**
      * convert
      *
      * @param  mixed $unit
      * @param  mixed $km
-     * @return void
+     * @return void 
      */
     public function convert($unit, $km)
     {
-        $result = 0;
-        switch($unit){
-            case $this->unit::KM:
-                 $result = ($km * self::KM);
-                 break;
-            case $this->unit::HM:
-                $result = ($km * self::HM);
-                break;
-            case $this->unit::DAM:
-                $result = ($km * self::DAM);
-                break;
-            case $this->unit::M: 
-                $result = ($km * self::M);
-                break;
-            case $this->unit::DM:
-                $result = ($km * self::DM);
-                break; 
-            case $this->unit::CM:
-                $result = ($km * self::CM);
-                break;
-            case $this->unit::MM:
-                $result = ($km * self::MM);
-                break;  
-            case $this->unit::YD:
-                $result = ($km / self::YD);
-                break;
-            case $this->unit::FT:
-                $result = ($km / self::FT);
-                break;
-            case $this->unit::IN:
-                $result = ($km / self::IN);
-                break;                        
-            default:
-                $result = '#Erro 501';
-                break;
-        }
-        return $result;
+        foreach($this->matrix() as $key => $value){
+            if($unit == $key)
+            {       
+               return ($value['A'] * $km) / $value['B'];
+            }
+        }      
     }
 
 }

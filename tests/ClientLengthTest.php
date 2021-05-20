@@ -9,178 +9,78 @@ class ClientLengthTest extends TestCase
 
     public function testConvert()
     {
-        //$this->hmConvert();
-        //$this->damConvert();
-        //$this->meterConvert();
-        //$this->dmConvert();
-        //$this->cmConvert();
-        //$this->mmConvert();
-        //$this->ydConvert();
-        //$this->ftConvert();
-       //$this->inConvert();
-        //$this->KmConvert();
+          $this->checkNm();
+          $this->updateNm();
+          $this->checkMicro();
+          $this->updateMicro();
     }
 
-    public function hmConvert()
+
+    public function checkNm()
     {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(1,1,23), 2), 23); 
-        $this->assertEquals( round($client->convert(1,2,23), 2), 230); 
-        $this->assertEquals( round($client->convert(1,3,23), 2), 2300);
-        $this->assertEquals( round($client->convert(1,4,23), 2), 23000);
-        $this->assertEquals( round($client->convert(1,5,23), 2), 230000);
-        $this->assertEquals( round($client->convert(1,6,23), 2), 2300000);
-        $this->assertEquals( round($client->convert(1,7,23), 2), 2515.31);
-        $this->assertEquals( round($client->convert(1,8,23), 2), 7545.93);  
-        $this->assertEquals( round($client->convert(1,9,23), 2), 90551.18);  
-        $this->assertEquals( round($client->convert(1,10,23), 2), 2.3);        
-    }
-
-    public function damConvert()
+        $nm = new ClientLength();
+        $this->assertEquals( $nm->convert(1,11,23), 2.3e+12); 
+        $this->assertEquals( $nm->convert(2,11,23), 2.3e+11);
+        $this->assertEquals( $nm->convert(3,11,23), 2.3e+10);
+        $this->assertEquals( $nm->convert(4,11,23), 2.3e+9);
+        $this->assertEquals( $nm->convert(5,11,23), 2.3e+8);
+        $this->assertEquals( $nm->convert(6,11,23), 2.3e+7);
+        $this->assertEquals( $nm->convert(7,11,23), 2.10312e+10);
+        $this->assertEquals( $nm->convert(8,11,23), 70.104e+8);
+        $this->assertEquals( $nm->convert(9,11,23), 584200000);
+        $this->assertEquals( $nm->convert(10,11,23), 2.3e+13);
+        $this->assertEquals( $nm->convert(11,11,23), 23);
+    } 
+    
+    public function updateNm()
     {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(2,1,23), 2), 2.3); 
-        $this->assertEquals( round($client->convert(2,2,23), 2), 23); 
-        $this->assertEquals( round($client->convert(2,3,23), 2), 230);
-        $this->assertEquals( round($client->convert(2,4,23), 2), 2300);
-        $this->assertEquals( round($client->convert(2,5,23), 2), 23000);
-        $this->assertEquals( round($client->convert(2,6,23), 2), 230000);
-        $this->assertEquals( round($client->convert(2,7,23), 2), 251.53);
-        $this->assertEquals( round($client->convert(2,8,23), 2), 754.59);  
-        $this->assertEquals( round($client->convert(2,9,23), 2), 9055.12);  
-        $this->assertEquals( round($client->convert(2,10,23), 2), 0.23); 
+        $nm =  new ClientLength();
+        $this->assertEquals($nm->convert(11,1,23), 2.3e-10);
+        $this->assertEquals($nm->convert(11,2,23), 2.3e-9); 
+        $this->assertEquals($nm->convert(11,3,23), 2.3e-8);
+        $this->assertEquals($nm->convert(11,4,23), 2.3e-7);
+        $this->assertEquals($nm->convert(11,5,23), 2.3e-6);
+        $this->assertEquals($nm->convert(11,6,23), 2.3e-5);
+        $this->assertEquals($nm->convert(11,7,23), 2.515310586e-8);
+        $this->assertEquals($nm->convert(11,8,23), 7.545931759e-8);
+        $this->assertEquals($nm->convert(11,9,23), 9.05511811e-7);
+        $this->assertEquals($nm->convert(11,10,23), 2.3e-11);
+        $this->assertEquals($nm->convert(11,11,23), 23);
     }
 
-    public function meterConvert()
+
+    public function checkMicro()
     {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(3,1,23), 2), 0.23); 
-        $this->assertEquals( round($client->convert(3,2,23), 2), 2.3); 
-        $this->assertEquals( round($client->convert(3,3,23), 2), 23);
-        $this->assertEquals( round($client->convert(3,4,23), 2), 230);
-        $this->assertEquals( round($client->convert(3,5,23), 2), 2300);
-        $this->assertEquals( round($client->convert(3,6,23), 2), 23000);
-        $this->assertEquals( round($client->convert(3,7,23), 2), 25.15);
-        $this->assertEquals( round($client->convert(3,8,23), 2), 75.46);  
-        $this->assertEquals( round($client->convert(3,9,23), 2), 905.51);   
-        $this->assertEquals( round($client->convert(3,10,23), 2), 0.02);        
+        $micro = new ClientLength();
+        $this->assertEquals( $micro->convert(1,12,23), 2300000000); 
+        $this->assertEquals( $micro->convert(2,12,23), 230000000);
+        $this->assertEquals( $micro->convert(3,12,23), 23000000);
+        $this->assertEquals( $micro->convert(4,12,23), 2300000);
+        $this->assertEquals( $micro->convert(5,12,23), 230000);
+        $this->assertEquals( $micro->convert(6,12,23), 23000);
+        $this->assertEquals( $micro->convert(7,12,23), 21031200);
+        $this->assertEquals( $micro->convert(8,12,23), 7010400);
+        $this->assertEquals( $micro->convert(9,12,23), 584200);
+        $this->assertEquals( $micro->convert(10,12,23), 2.3e+10);
+        $this->assertEquals( $micro->convert(11,12,23), 0.023);
+        $this->assertEquals( $micro->convert(12,12,23), 23);
     }
-
-    public function dmConvert()
+    
+    public function updateMicro()
     {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(4,1,23), 2), 0.02); 
-        $this->assertEquals( round($client->convert(4,2,23), 2), 0.23); 
-        $this->assertEquals( round($client->convert(4,3,23), 2), 2.3);
-        $this->assertEquals( round($client->convert(4,4,23), 2), 23); 
-        $this->assertEquals( round($client->convert(4,5,23), 2), 230);
-        $this->assertEquals( round($client->convert(4,6,23), 2), 2300);
-        $this->assertEquals( round($client->convert(4,7,23), 2), 2.52);
-        $this->assertEquals( round($client->convert(4,8,23), 2), 7.55);  
-        $this->assertEquals( round($client->convert(4,9,23), 2), 90.55);   
-        $this->assertEquals( round($client->convert(4,10,23), 2), 0.00);          
+        $micro = new ClientLength();
+        $this->assertEquals( $micro->convert(12,1,23), 2.3e-7);
+        $this->assertEquals( $micro->convert(12,2,23), 0.0000023);
+        $this->assertEquals( $micro->convert(12,3,23), 0.000023);
+        $this->assertEquals( $micro->convert(12,4,23), 0.00023);
+        $this->assertEquals( $micro->convert(12,5,23), 0.0023);
+        $this->assertEquals( $micro->convert(12,6,23), 0.023);
+        $this->assertEquals( $micro->convert(12,7,23), 0.00002515310586);
+        $this->assertEquals( $micro->convert(12,8,23), 0.00007545931759);
+        $this->assertEquals( $micro->convert(12,9,23), 0.000905511811);
+        $this->assertEquals( $micro->convert(12,10,23), 2.3e-8);
+        $this->assertEquals( $micro->convert(12,11,23), 23000);
+        $this->assertEquals( $micro->convert(12,12,23), 23);
     }
-
-    public function cmConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(5,1,23), 2), 0.00); 
-        $this->assertEquals( round($client->convert(5,2,23), 2), 0.02); 
-        $this->assertEquals( round($client->convert(5,3,23), 2), 0.23);
-        $this->assertEquals( round($client->convert(5,4,23), 2), 2.3);
-        $this->assertEquals( round($client->convert(5,5,23), 2), 23);
-        $this->assertEquals( round($client->convert(5,6,23), 2), 230);
-        $this->assertEquals( round($client->convert(5,7,23), 2), 0.25);
-        $this->assertEquals( round($client->convert(5,8,23), 2), 0.75);  
-        $this->assertEquals( round($client->convert(5,9,23), 2), 9.06);   
-        $this->assertEquals( round($client->convert(5,10,23), 2), 0.00);
-    }
-
-    public function mmConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(6,1,23), 2), 0.00); 
-        $this->assertEquals( round($client->convert(6,2,23), 2), 0.00); 
-        $this->assertEquals( round($client->convert(6,3,23), 2), 0.02);
-        $this->assertEquals( round($client->convert(6,4,23), 2), 0.23); 
-        $this->assertEquals( round($client->convert(6,5,23), 2), 2.3);
-        $this->assertEquals( round($client->convert(6,6,23), 2), 23);
-        $this->assertEquals( round($client->convert(6,7,23), 2), 0.03);
-        $this->assertEquals( round($client->convert(6,8,23), 2), 0.08);  
-        $this->assertEquals( round($client->convert(6,9,23), 2), 0.91);   
-        $this->assertEquals( round($client->convert(6,10,23), 2), 0.00);
-    }
-
-    public function ydConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(7,1,23), 2), 0.21);  
-        $this->assertEquals( round($client->convert(7,2,23), 2), 2.10);   
-        $this->assertEquals( round($client->convert(7,3,23), 2), 21.03);
-        $this->assertEquals( round($client->convert(7,4,23), 2), 210.31); 
-        $this->assertEquals( round($client->convert(7,5,23), 2), 2103.12);
-        $this->assertEquals( round($client->convert(7,6,23), 2), 21031.2);
-        $this->assertEquals( round($client->convert(7,7,23), 2), 23);
-        $this->assertEquals( round($client->convert(7,8,23), 2), 69);   
-        $this->assertEquals( round($client->convert(7,9,23), 2), 828);   
-        $this->assertEquals( round($client->convert(7,10,23), 2), 0.02);
-    }
-
-    public function ftConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(8,1,23), 2), 0.07); 
-        $this->assertEquals( round($client->convert(8,2,23), 2), 0.70); 
-        $this->assertEquals( round($client->convert(8,3,23), 2), 7.01);
-        $this->assertEquals( round($client->convert(8,4,23), 2), 70.10);
-        $this->assertEquals( round($client->convert(8,5,23), 2), 701.04);
-        $this->assertEquals( round($client->convert(8,6,23), 2), 7010.4);
-        $this->assertEquals( round($client->convert(8,7,23), 2), 7.67);
-        $this->assertEquals( round($client->convert(8,8,23), 2), 23);  
-        $this->assertEquals( round($client->convert(8,9,23), 2), 276);   
-        $this->assertEquals( round($client->convert(8,10,23), 2), 0.01); 
-    }
-
-    public function inConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(9,1,23), 2), 0.01); 
-        $this->assertEquals( round($client->convert(9,2,23), 2), 0.06); 
-        $this->assertEquals( round($client->convert(9,3,23), 2), 0.58);
-        $this->assertEquals( round($client->convert(9,4,23), 2), 5.84); 
-        $this->assertEquals( round($client->convert(9,5,23), 2), 58.42);
-        $this->assertEquals( round($client->convert(9,6,23), 2), 584.2);
-        $this->assertEquals( round($client->convert(9,7,23), 2), 0.64);
-        $this->assertEquals( round($client->convert(9,8,23), 2), 1.92);  
-        $this->assertEquals( round($client->convert(9,9,23), 2), 23);   
-        $this->assertEquals( round($client->convert(9,10,23), 2), 0.00);
-    }
-
-
-    public function KmConvert()
-    {
-        $client = new ClientLength();
-
-        $this->assertEquals( round($client->convert(10,1,23), 2), 230); 
-        $this->assertEquals( round($client->convert(10,2,23), 2), 2300); 
-        $this->assertEquals( round($client->convert(10,3,23), 2), 23000);
-        $this->assertEquals( round($client->convert(10,4,23), 2), 230000);
-        $this->assertEquals( round($client->convert(10,5,23), 2), 2300000);
-        $this->assertEquals( round($client->convert(10,6,23), 2), 23000000);
-        $this->assertEquals( round($client->convert(10,7,23), 2), 25153.11);
-        $this->assertEquals( round($client->convert(10,8,23), 2), 75459.32);  
-        $this->assertEquals( round($client->convert(10,9,23), 2), 905511.81);   
-        $this->assertEquals( round($client->convert(10,10,23), 2), 23);    
-    }
-
 
 }

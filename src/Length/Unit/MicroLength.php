@@ -1,17 +1,18 @@
 <?php
+
 namespace Tigo\UnitsConversion\Length\Unit;
 
 use Tigo\UnitsConversion\Length\StandardUnit;
 
 
 /**
- * Business rule Decimeter
+ * Business rule Micrometers
  * 
  * @author Tiago A C Pereira <tiagocavalcante57@gmail.com>
  */
-class DmLength
+class MicroLength
 {
-       
+
     /**
      * Instance
      *
@@ -29,7 +30,7 @@ class DmLength
         $this->unit = new StandardUnit();
     }
 
-    /**
+     /**
      * matrix
      *
      * @return array
@@ -38,59 +39,60 @@ class DmLength
     {
         return [
             $this->unit::HM =>[
-                'A' => 1, 'B' => 1000           
+                'A' => 1, 'B' => 100000000          
             ],
             $this->unit::DAM =>[
-                'A' => 1, 'B' => 100           
+                'A' => 1, 'B' => 10000000           
             ],
             $this->unit::M =>[
-                'A' => 1, 'B' => 10           
+                'A' => 1, 'B' => 1000000           
             ],
             $this->unit::DM => [
-                'A' => 1, 'B' => 1           
+                'A' => 1, 'B' => 100000           
             ],
             $this->unit::CM =>[
-                'A' => 10, 'B' => 1           
+                'A' => 1, 'B' => 10000            
             ],
             $this->unit::MM => [
-                'A' => 100, 'B' => 1           
+                'A' => 1, 'B' => 1000            
             ],
             $this->unit::YD => [
-                'A' => 1, 'B' => 9.144           
+                'A' => 1, 'B' => 914400           
             ],
             $this->unit::FT =>[
-                'A' => 1, 'B' => 3.048           
+                'A' => 1, 'B' => 304800           
             ],
             $this->unit::IN =>[
-                'A' => 1, 'B' => 0.254         
+                'A' => 1, 'B' => 25400         
             ],
             $this->unit::KM=>[
-                'A' => 1, 'B' => 10000           
+                'A' => 1, 'B' => 1000000000          
             ],
             $this->unit::NM=>[
-                'A' => 100000000, 'B' => 1           
+                'A' => 1000, 'B' => 1           
             ],
             $this->unit::MICRO=>[
-                'A' => 100000, 'B' => 1     
+                'A' => 1, 'B' => 1           
             ]
+ 
         ]; 
     }
-        
+    
     /**
      * convert
      *
      * @param  mixed $unit
-     * @param  mixed $dm
+     * @param  mixed $nm
      * @return void
      */
-    public function convert($unit, $dm)
+    public function convert($unit, $micro)
     {
         foreach($this->matrix() as $key => $value){
             if($unit == $key)
             {       
-               return ($value['A'] * $dm) / $value['B'];
+               return ($value['A'] * $micro) / $value['B'];
             }
-        } 
+        }
     }
-  
-}
+
+}   
